@@ -11,7 +11,7 @@ const heading = React.createElement(
       },
       xyz: "abc",
     },
-    "Hello World from React!!!"
+    "Hello World from React!"
   );
   
   // heading is React object not a actual heading html element
