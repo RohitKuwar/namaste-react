@@ -6,17 +6,18 @@ import { useParams } from 'react-router-dom'
 
 function RestaurantMenu() {
     const { restaurantId } = useParams()
+    console.log('restaurantId', restaurantId)
     const restaurantData = useRestaurantMenu(restaurantId)
-
-    if(restaurantData?.length === 0) {
-        return <h1>Loading...</h1>
-      }
+    
+    console.log('restaurantData', restaurantData)
 
     const { name, areaName, city, cuisines, expectationNotifiers, sla, costForTwoMessage } = restaurantData?.cards[0]?.card?.card?.info
     const { itemCards } = restaurantData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
 
-    console.log('restaurantData', restaurantData)
 
+    if(restaurantData?.length === 0) {
+        return <h1>Loading...</h1>
+      }
 
   return (
 
