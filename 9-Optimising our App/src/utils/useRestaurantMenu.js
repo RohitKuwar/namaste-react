@@ -14,7 +14,6 @@ function useRestaurantMenu(resId) {
         console.log('res', res)
         setData(res?.data)
     }
-    console.log('dataaaaaa', data)
   return data;
 }
 

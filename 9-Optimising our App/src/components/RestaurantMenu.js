@@ -1,23 +1,19 @@
 import React from 'react'
 import Header from './Header'
-import { CDN_IMG_URL, MENU_URL } from "../utils/constants";
-import useRestaurantMenu from '../utils/useRestaurantMenu'
+import { CDN_IMG_URL } from "../utils/constants";
 import { useParams } from 'react-router-dom'
+import useRestaurantMenu from '../utils/useRestaurantMenu'
 
 function RestaurantMenu() {
     const { restaurantId } = useParams()
-    console.log('restaurantId', restaurantId)
     const restaurantData = useRestaurantMenu(restaurantId)
-    
-    console.log('restaurantData', restaurantData)
-
-    const { name, areaName, city, cuisines, expectationNotifiers, sla, costForTwoMessage } = restaurantData?.cards[0]?.card?.card?.info
-    const { itemCards } = restaurantData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
-
 
     if(restaurantData?.length === 0) {
         return <h1>Loading...</h1>
       }
+
+    const { name, areaName, city, cuisines, expectationNotifiers, sla, costForTwoMessage } = restaurantData?.cards[0]?.card?.card?.info
+    const { itemCards } = restaurantData?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
 
   return (
 
